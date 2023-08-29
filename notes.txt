@@ -1,0 +1,5 @@
+JSX stands for JavaScript and XML. It resembles HTML but there are some differences like className instead of class and etc. 
+
+JSX allows us to write JavaScript expressions into the code.
+
+JSX renders data as a string when it displays it. However it cannot display objects and booleans.

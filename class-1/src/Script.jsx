@@ -2,22 +2,28 @@ import logo from './logo.svg';
 import './Script.css';
 
 function Script() {
+
+  const name = 'Brian'
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <p>html</p>
+        
+      <p>{'Brian'}</p>
+
+      <p>{1}</p>
+
+      <p>{[1, 2, 3]}</p>
+
+      <p>[1, 2, 3]</p>
+      
+      <p>{name}</p>
+
+      {/* <p>{true}</p> */}
+
+      {/* <p>{{a: 1, b: 2}}</p> */} 
+      
     </div>
   );
 }
