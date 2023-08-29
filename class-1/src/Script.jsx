@@ -8,21 +8,7 @@ function Script() {
   return (
     <div className="App">
 
-      <p>html</p>
-        
-      <p>{'Brian'}</p>
-
-      <p>{1}</p>
-
-      <p>{[1, 2, 3]}</p>
-
-      <p>[1, 2, 3]</p>
-      
-      <p>{name}</p>
-
-      {/* <p>{true}</p> */}
-
-      {/* <p>{{a: 1, b: 2}}</p> */} 
+     <h1>Hello World</h1> 
       
     </div>
   );
