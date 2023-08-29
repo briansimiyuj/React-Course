@@ -3,12 +3,20 @@ import './Script.css';
 
 function Script() {
 
-  const name = 'Brian'
+  const handleNameChange = () =>{
+  
+    const names = ['Bob', 'Kevin', 'Dave'],
+
+      int = Math.floor(Math.random() * 3)
+
+    return names[int]
+  
+  }
 
   return (
     <div className="App">
 
-     <h1>Hello World</h1> 
+     <h1>Hello {handleNameChange()}</h1> 
       
     </div>
   );

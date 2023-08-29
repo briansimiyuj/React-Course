@@ -3,3 +3,5 @@ JSX stands for JavaScript and XML. It resembles HTML but there are some differen
 JSX allows us to write JavaScript expressions into the code.
 
 JSX renders data as a string when it displays it. However it cannot display objects and booleans.
+
+We can also call a function in JSX
