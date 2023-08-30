@@ -40,7 +40,7 @@ const Content = () =>{
 
         <main>
 
-          <p>Hello {handleNameChange()}! </p>
+          <p onDoubleClick={handleClick}>Hello {handleNameChange()}! </p>
 
           <button onClick={handleClick}>Click Here</button>
           
