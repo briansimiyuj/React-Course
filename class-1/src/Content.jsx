@@ -10,13 +10,23 @@ const Content = () =>{
     
     }
 
+
+
+    const handleClick = () =>{
+    
+      console.log('working')
+    
+    }
+
     
 
     return(
 
         <main>
 
-          <p>Hello {handleNameChange()}!</p>
+          <p>Hello {handleNameChange()}! </p>
+
+          <button onClick={handleClick}>Click Here</button>
 
         </main>
 
