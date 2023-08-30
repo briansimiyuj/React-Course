@@ -17,6 +17,14 @@ const Content = () =>{
       console.log('working')
     
     }
+    
+    
+    
+    const handleClickTwo = (name) =>{
+    
+      console.log(`${name} was clicked`)
+    
+    }
 
     
 
@@ -27,6 +35,8 @@ const Content = () =>{
           <p>Hello {handleNameChange()}! </p>
 
           <button onClick={handleClick}>Click Here</button>
+          
+          <button onClick={() => handleClickTwo('Mike')}>Click Here</button>
 
         </main>
 
