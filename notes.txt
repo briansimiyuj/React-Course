@@ -1,7 +1,1 @@
-JSX stands for JavaScript and XML. It resembles HTML but there are some differences like className instead of class and etc. 
-
-JSX allows us to write JavaScript expressions into the code.
-
-JSX renders data as a string when it displays it. However it cannot display objects and booleans.
-
-We can also call a function in JSX
+Click events gives us access to event object as shown in Content.jsx ln33 and 49 

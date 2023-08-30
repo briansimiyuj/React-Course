@@ -26,6 +26,14 @@ const Content = () =>{
     
     }
 
+
+
+    const handleClickThree = (e) =>{
+    
+      console.log(e)
+    
+    }
+
     
 
     return(
@@ -37,6 +45,8 @@ const Content = () =>{
           <button onClick={handleClick}>Click Here</button>
           
           <button onClick={() => handleClickTwo('Mike')}>Click Here</button>
+          
+          <button onClick={(e) => handleClickThree(e)}>Click Here</button>
 
         </main>
 
