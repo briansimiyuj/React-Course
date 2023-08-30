@@ -2,7 +2,12 @@ const Header = () =>{
 
     return(
 
-        <header>
+        <header style={{
+
+          backgroundColor: "mediumblue",
+          color: "#fff"
+
+        }}>
 
           <h1>Groceries List</h1>
 
