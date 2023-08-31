@@ -4,6 +4,8 @@ const Content = () =>{
 
     const [name, setName] = useState('Kevin')
 
+    const [count, setCount] = useState(0)
+
     const handleNameChange = () =>{
     
       const names = ['Bob', 'Kevin', 'Dave'],
@@ -17,9 +19,11 @@ const Content = () =>{
 
 
     const handleClick = () =>{
-    
-      console.log('working')
-    
+
+      setCount(count + 1)
+
+      console.log(count)
+
     }
     
     
@@ -48,7 +52,7 @@ const Content = () =>{
 
           <button onClick={handleNameChange}>Set Name</button>
           
-          <button onClick={() => handleClickTwo('Mike')}>Click Here</button>
+          <button onClick={handleClick}>Set Count</button>
           
           <button onClick={(e) => handleClickThree(e)}>Click Here</button>
 
