@@ -1,1 +1,3 @@
-Click events gives us access to event object as shown in Content.jsx ln33 and 49 
+To install react icons, use the following command: 
+
+    `npm i react-icons -D`
