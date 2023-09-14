@@ -8,7 +8,7 @@ const Content = () =>{
 
         {
             id: 1,
-            checked: false,
+            checked: true,
             item: "One half pound bag of Cocoa Covered Almonds Unsalted"
         },
 
@@ -26,33 +26,84 @@ const Content = () =>{
 
     ])
 
+
+
+    const handleCheck = (id) =>{
+    
+       const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} :item)
+
+       setItems(listItems)
+
+       localStorage.setItem('Shopping List', JSON.stringify(listItems))
+    
+    }
+
+
+
+    const handleDelete = (id) =>{
+    
+        const listItems = items.filter(item => item.id !== id)
+
+        setItems(listItems)
+
+       localStorage.setItem('Shopping List', JSON.stringify(listItems))
+    
+    }
+
     
 
     return(
 
         <main>
 
-            <ul>
+            {
 
-                {
+                items.length ? (
 
-                    items.map(item => (
+                    <ul>
 
-                        <li className="item" key={item.id}>  
-                        
-                            <input type="checkbox" checked={item.checked} />
+                        {
 
-                            <label>{item.item}</label>
+                            items.map(item => (
 
-                            <FaTrashAlt role="button" tabIndex='0'/>
-                        
-                        </li>
+                                <li className="item" key={item.id}>  
+                                
+                                    <input 
+                                        type="checkbox" 
+                                        checked={item.checked}
+                                        onChange={() => handleCheck(item.id)}
+                                    />
 
-                    ))
+                                    <label
+                                        onDoubleClick={() => handleCheck(item.id)}
+                                        style={(item.checked ? {textDecoration: "line-through"} : null)}
+                                    >
+                                        
+                                        {item.item}
+                                    
+                                    </label>
 
-                }                
+                                    <FaTrashAlt 
+                                        role="button" 
+                                        tabIndex='0'
+                                        onClick={() => handleDelete(item.id)}
+                                    />
+                                
+                                </li>
 
-            </ul>
+                            ))
+
+                        }                
+
+                    </ul>
+        
+                ) :  (
+
+                    <p style={{marginTop: "2rem"}}>Your list is empty!</p>
+
+                )
+
+            }
 
         </main>
 
