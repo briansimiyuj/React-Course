@@ -7,7 +7,7 @@ function Script() {
   return (
     <div className="App">
 
-     <Header/>
+     <Header title="Groceries"/>
 
      <Content/>
 
