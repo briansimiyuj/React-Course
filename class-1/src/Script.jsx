@@ -62,7 +62,7 @@ function Script() {
         handleDelete={handleDelete}
       />
 
-     <Footer/>
+     <Footer length={items.length} />
       
     </div>
   );
