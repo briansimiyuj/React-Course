@@ -1,3 +1,10 @@
-Default props allow us to specify default values for a component's props in case they are not provided when the component is used. They ensure that our component still functions correctly even if certain props are missing. 
+Prop drilling is a common pattern in React where data is passed down from a parent component to a deeply nested child component through intermediate components. Content component receives three props: items, handleCheck, and handleDelete (Content.jsx ln3)
 
-We can define default props using the `defaultProps` property within a functional component (Header.jsx ln16). This is particularly useful for creating more robust and flexible components that gracefully handle various input scenarios. Default props help make our code more predictable and maintainable by defining fallback values when needed.
+Content is a component that receives props from its parent component (Script.jsx).
+
+It depends on the data and functions provided through these props to render its content and handle user interactions.
+Script Component.
+
+In Script.jsx, we are rendering the Content component and passing it three props: items, handleCheck, and handleDelete.
+
+Prop drilling occurs here as Script is responsible for providing these props, and they are drilled down to the Content component.
