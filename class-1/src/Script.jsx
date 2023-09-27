@@ -32,13 +32,41 @@ function Script() {
   const [newItem, setNewItem] = useState('')
 
 
+  const setAndSaveItems = (newItems) =>{
+  
+    setItems(newItems)
+
+    localStorage.setItem('Shopping List', JSON.stringify(newItems))
+  
+  }
+
+  const addItem = (item) =>{
+  
+    const id = items.length ? items[items.length - 1].id + 1 : 1,
+
+          myNewItem = { 
+            
+            id, 
+            
+            checked: false, 
+            
+            item 
+          
+          },
+
+          listItems = [...items, myNewItem]
+
+
+    setAndSaveItems(listItems)
+  
+  }
+
+
   const handleCheck = (id) =>{
     
     const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} :item)
 
-    setItems(listItems)
-
-    localStorage.setItem('Shopping List', JSON.stringify(listItems))
+    setAndSaveItems(listItems)
  
   }
 
@@ -48,16 +76,24 @@ function Script() {
  
     const listItems = items.filter(item => item.id !== id)
 
-    setItems(listItems)
-
-    localStorage.setItem('Shopping List', JSON.stringify(listItems))
+    setAndSaveItems(listItems)
  
   }
 
 
   const handleSubmit = (e) =>{
+
+    e.preventDefault()
+
+    if(!newItem) return
+
+    // console.log(newItem)
+
+    // Add a new item
+
+    addItem(newItem)
   
-    console.log('working')
+    setNewItem('')
   
   }
 
