@@ -29,6 +29,9 @@ function Script() {
   ]) 
 
 
+  const [newItem, setNewItem] = useState('')
+
+
   const handleCheck = (id) =>{
     
     const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} :item)
@@ -52,12 +55,23 @@ function Script() {
   }
 
 
+  const handleSubmit = (e) =>{
+  
+    console.log('working')
+  
+  }
+
+
   return (
     <div className="App">
 
      <Header title="Grocery List"/>
 
-     <AddItem/>
+     <AddItem
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+     />
 
      <Content
         items={items} 
@@ -71,4 +85,4 @@ function Script() {
   );
 }
 
-export default Script;
+export default Script; 

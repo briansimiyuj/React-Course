@@ -1,6 +1,6 @@
 import { FaPlus } from 'react-icons/fa'
 
-const AddItem = () =>{
+const AddItem = ({ newItem, setNewItem, handleSubmit }) =>{
 
     return(
 
@@ -14,6 +14,8 @@ const AddItem = () =>{
                 id="addItem" 
                 autoFocus 
                 placeholder="Add Item" 
+                value={newItem}
+                onChange={e => setNewItem(e.target.value)}
             />
 
             <button aria-label="Add Item">
