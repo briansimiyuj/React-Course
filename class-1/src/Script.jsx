@@ -6,27 +6,7 @@ import { useState } from 'react'
 
 function Script() {
 
-  const [items, setItems] = useState([
-
-    {
-        id: 1,
-        checked: true,
-        item: "One half pound bag of Cocoa Covered Almonds Unsalted"
-    },
-
-    {
-        id: 2,
-        checked: false,
-        item: "Item 2"
-    },
-
-    {
-        id: 3,
-        checked: false,
-        item: "Item 3"
-    }
-
-  ]) 
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Shopping List'))) 
 
 
   const [newItem, setNewItem] = useState('')
@@ -86,8 +66,6 @@ function Script() {
     e.preventDefault()
 
     if(!newItem) return
-
-    // console.log(newItem)
 
     // Add a new item
 
