@@ -1,4 +1,5 @@
 import Header from './Header';
+import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
@@ -10,6 +11,8 @@ function Script() {
 
 
   const [newItem, setNewItem] = useState('')
+
+  const [search, setSearch] = useState('')
 
 
   const setAndSaveItems = (newItems) =>{
@@ -80,11 +83,16 @@ function Script() {
     <div className="App">
 
      <Header title="Grocery List"/>
-
+     
      <AddItem
         newItem={newItem}
         setNewItem={setNewItem}
         handleSubmit={handleSubmit}
+     />
+     
+     <SearchItem
+        search={search}
+        setSearch={setSearch}
      />
 
      <Content
