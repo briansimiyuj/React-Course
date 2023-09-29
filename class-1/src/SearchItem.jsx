@@ -1,4 +1,4 @@
-const SearchItem = () =>{
+const SearchItem = ({ search, setSearch }) =>{
 
     return(
 
@@ -11,6 +11,8 @@ const SearchItem = () =>{
                 role="searchbox"
                 id="search" 
                 placeholder="Search Items"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
             />
 
         </form>
