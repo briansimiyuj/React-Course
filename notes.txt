@@ -1,1 +1,1 @@
-useEffect only runs when the state of items changes (Script.js ln22). Thus making items a dependancy.
+When we log to the console, the before comes first. Then after then Inside comes last. This is because useEffect is asynchronous

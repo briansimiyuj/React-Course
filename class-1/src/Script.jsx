@@ -13,13 +13,19 @@ function Script() {
   const [newItem, setNewItem] = useState('')
 
   const [search, setSearch] = useState('')
+
+
+  console.log('Before useEffect')
   
 
   useEffect(() =>{
 
-    console.log('Updating item state')
+    console.log('Inside useEffect')
 
   }, [items])
+
+
+  console.log('After useEffect')
 
   const setAndSaveItems = (newItems) =>{
   
