@@ -1,3 +1,1 @@
-To make the input our form a controlled input, we need to set its value to be the current state.
-
-onChange is what modifies the state. (AddItem ln 17 and 18)
+useEffect only runs when the state of items changes (Script.js ln22). Thus making items a dependancy.

@@ -17,9 +17,9 @@ function Script() {
 
   useEffect(() =>{
 
-    console.log('Load Time')
+    console.log('Updating item state')
 
-  }, [])
+  }, [items])
 
   const setAndSaveItems = (newItems) =>{
   
