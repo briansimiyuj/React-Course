@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 function Script() {
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Shopping List'))) 
+  const [items, setItems] = useState([]) 
 
 
   const [newItem, setNewItem] = useState('')
@@ -15,17 +15,13 @@ function Script() {
   const [search, setSearch] = useState('')
 
 
-  console.log('Before useEffect')
-  
-
   useEffect(() =>{
+  
+    setItems(JSON.parse(localStorage.getItem('Shopping List')))
+  
+  }, [])
 
-    console.log('Inside useEffect')
-
-  }, [items])
-
-
-  console.log('After useEffect')
+  
 
   const setAndSaveItems = (newItems) =>{
   
