@@ -7,7 +7,11 @@ import { useState, useEffect } from 'react'
 
 function Script() {
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Shopping List')) || []) 
+  const API_URL =  "http://localhost:8000/items"
+
+
+
+  const [items, setItems] = useState([]) 
 
 
   const [newItem, setNewItem] = useState('')
@@ -17,9 +21,29 @@ function Script() {
 
   useEffect(() =>{
   
-    localStorage.setItem('Shopping List', JSON.stringify(items))
+    const fetchItems = async () =>{
+    
+      try{
+
+        const response = await fetch(API_URL)
+
+        const listItems = await response.json()
+
+        setItems(listItems)
+
+        console.log(listItems )
+
+      }catch(err){
+
+        console.log(err.stack)
+
+      }
+    
+    }
+
+    fetchItems()
   
-  }, [items])
+  }, [])
 
 
   const addItem = (item) =>{
