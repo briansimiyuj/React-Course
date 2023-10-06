@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 function Script() {
 
-  const API_URL =  "http://localhost:8000/itemss9"
+  const API_URL =  "http://localhost:8000/items"
 
 
 
@@ -19,6 +19,8 @@ function Script() {
   const [search, setSearch] = useState('')
 
   const [fetchError, setFetchError] = useState(null)
+
+  const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() =>{
@@ -40,6 +42,10 @@ function Script() {
       }catch(err){
 
         setFetchError(err.message)
+
+      }finally{
+
+        setIsLoading(false)
 
       }
     
@@ -130,13 +136,19 @@ function Script() {
 
       {
 
+        isLoading && <p>Loading items...</p>        
+
+      }
+
+      {
+
         fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>
 
       }
 
       {
 
-        !fetchError && 
+        !fetchError && !isLoading &&
         <Content
           items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} 
           handleCheck={handleCheck}
