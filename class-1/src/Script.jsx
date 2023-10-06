@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 function Script() {
 
-  const API_URL =  "http://localhost:8000/items"
+  const API_URL =  "http://localhost:8000/itemss9"
 
 
 
@@ -18,6 +18,8 @@ function Script() {
 
   const [search, setSearch] = useState('')
 
+  const [fetchError, setFetchError] = useState(null)
+
 
   useEffect(() =>{
   
@@ -27,21 +29,27 @@ function Script() {
 
         const response = await fetch(API_URL)
 
+        if(!response.ok) throw Error('Did not receive expected data')
+
         const listItems = await response.json()
 
         setItems(listItems)
 
-        console.log(listItems )
+        setFetchError(null)
 
       }catch(err){
 
-        console.log(err.stack)
+        setFetchError(err.message)
 
       }
     
     }
 
-    fetchItems()
+    setTimeout(() => {
+      
+      fetchItems()
+
+    }, 2000)
   
   }, [])
 
@@ -118,11 +126,26 @@ function Script() {
         setSearch={setSearch}
      />
 
-     <Content
-        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} 
-        handleCheck={handleCheck}
-        handleDelete={handleDelete}
-      />
+     <main>
+
+      {
+
+        fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>
+
+      }
+
+      {
+
+        !fetchError && 
+        <Content
+          items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} 
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
+
+      }
+
+     </main>
 
      <Footer length={items.length} />
       
