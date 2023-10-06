@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 function Script() {
 
-  const [items, setItems] = useState([]) 
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Shopping List')) || []) 
 
 
   const [newItem, setNewItem] = useState('')
@@ -17,19 +17,10 @@ function Script() {
 
   useEffect(() =>{
   
-    setItems(JSON.parse(localStorage.getItem('Shopping List')))
+    localStorage.setItem('Shopping List', JSON.stringify(items))
   
-  }, [])
+  }, [items])
 
-  
-
-  const setAndSaveItems = (newItems) =>{
-  
-    setItems(newItems)
-
-    localStorage.setItem('Shopping List', JSON.stringify(newItems))
-  
-  }
 
   const addItem = (item) =>{
   
@@ -48,7 +39,7 @@ function Script() {
           listItems = [...items, myNewItem]
 
 
-    setAndSaveItems(listItems)
+    setItems(listItems)
   
   }
 
@@ -57,7 +48,7 @@ function Script() {
     
     const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} :item)
 
-    setAndSaveItems(listItems)
+    setItems(listItems)
  
   }
 
@@ -67,7 +58,7 @@ function Script() {
  
     const listItems = items.filter(item => item.id !== id)
 
-    setAndSaveItems(listItems)
+    setItems(listItems)
  
   }
 
