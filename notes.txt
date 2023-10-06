@@ -1,1 +1,1 @@
-Script.jsx ln 10 retrieves data from the browser's localStorage with the key 'Shopping List'. If data is found, it's parsed from a JSON string into a JavaScript object. If there's no data or it can't be parsed, an empty array [] is used as a default value.
+Use `npx json-server --watch ${databaseDirectory/databaseFile.json} --port ${portNumber}` to setup JSON server.
