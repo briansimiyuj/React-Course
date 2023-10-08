@@ -3,6 +3,7 @@ import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
+import apiRequest from './apiRequest';
 import { useState, useEffect } from 'react'
 
 function Script() {
@@ -60,7 +61,7 @@ function Script() {
   }, [])
 
 
-  const addItem = (item) =>{
+  const addItem = async (item) =>{
   
     const id = items.length ? items[items.length - 1].id + 1 : 1,
 
@@ -78,7 +79,27 @@ function Script() {
 
 
     setItems(listItems)
-  
+
+
+    const postOptions  ={
+
+      method: "POST",
+
+      headers:{
+
+        "Content-Type":  "application/json"
+
+      },
+
+      body: JSON.stringify(myNewItem)
+
+    }
+
+
+    const result = await apiRequest(API_URL, postOptions)
+
+    if(result) setFetchError(result)
+   
   }
 
 

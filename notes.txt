@@ -1,1 +1,1 @@
-Use `npx json-server --watch ${databaseDirectory/databaseFile.json} --port ${portNumber}` to setup JSON server.
+Status 304 means that nothing in the resource has changed, therefore the browser uses cached information
