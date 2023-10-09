@@ -1,1 +1,0 @@
-PATCH method is used to update the state of the resource in the database.

@@ -138,11 +138,20 @@ function Script() {
 
 
 
-  const handleDelete = (id) =>{
+  const handleDelete = async (id) =>{
  
     const listItems = items.filter(item => item.id !== id)
 
     setItems(listItems)
+
+
+    const deleteOptions = { method: "DELETE" }
+
+    const reqURL = `${API_URL}/${id}`,
+
+          result = await apiRequest(reqURL, deleteOptions)
+
+    if(result) setFetchError(result)
  
   }
 
