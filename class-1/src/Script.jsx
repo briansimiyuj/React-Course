@@ -103,11 +103,36 @@ function Script() {
   }
 
 
-  const handleCheck = (id) =>{
+  const handleCheck = async (id) =>{
     
     const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} :item)
 
     setItems(listItems)
+
+
+    const myItem = listItems.filter(item => item.id === id)
+
+
+    const updateOptions ={
+
+      method: "PATCH",
+
+      headers:{
+
+        "Content-Type": "application/json"
+
+      },
+
+      body: JSON.stringify({ checked: myItem[0].checked })
+
+    } 
+
+
+    const reqURL = `${API_URL}/${id}`,
+
+          result = await apiRequest(reqURL, updateOptions)
+
+    if(result) setFetchError(result)
  
   }
 

@@ -1,1 +1,1 @@
-Status 304 means that nothing in the resource has changed, therefore the browser uses cached information
+PATCH method is used to update the state of the resource in the database.
